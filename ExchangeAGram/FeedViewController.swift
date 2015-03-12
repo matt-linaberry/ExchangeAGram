@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices // this imports the camera
 import CoreData // core data import
+
 class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -116,6 +117,14 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         
         return cell
+    }
+    
+    //CollectionViewDelegate
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let thisItem = feedArray[indexPath.row] as FeedItem
+        var filterVC = FilterViewController()
+        filterVC.thisFeedItem = thisItem
+        self.navigationController?.pushViewController(filterVC, animated: false)
     }
     
 }
