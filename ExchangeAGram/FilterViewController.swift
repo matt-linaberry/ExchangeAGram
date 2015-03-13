@@ -15,6 +15,9 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     let kIntensity = 0.7
     var context:CIContext = CIContext(options: nil)
     var filters:[CIFilter] = []
+    let placeHolderImage = UIImage(named: "Placeholder")
+    let tmp = NSTemporaryDirectory()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,10 +51,35 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        // optimized here for multithreading using GCD -- grand central dispatch
         let cell:FilterCell = collectionView.dequeueReusableCellWithReuseIdentifier("MyCell", forIndexPath: indexPath) as FilterCell
-        //cell.imageView.image = UIImage(named: "Placeholder")
-        cell.imageView.image = filteredImageFromImage(thisFeedItem.image, filter: filters[indexPath.row])
+        cell.imageView.image = placeHolderImage
+        
+        let filterQueue:dispatch_queue_t = dispatch_queue_create("filter queue", nil)  // okay, here's the queue!
+        // UI changes should always be done on the main thread...
+        // tasks to run threaded...
+        dispatch_async(filterQueue, { () -> Void in
+            let filterImage = self.getCachedImage(indexPath.row)  // get or set the image in the cache.
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                cell.imageView.image = filterImage  // go back to the main thread!
+            })
+        })
+
         return cell
+    }
+    
+    // UICollectionViewDelegates
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])  // lets save the full image....
+        let imageData = UIImageJPEGRepresentation(filterImage, 1.0)
+        self.thisFeedItem.image = imageData
+        let thumbnailData = UIImageJPEGRepresentation(filterImage, 0.1)
+        self.thisFeedItem.thumbNail = thumbnailData
+        
+        // save to core data
+        (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
+        self.navigationController?.popViewControllerAnimated(true)
+        
     }
     
     // helper methods!
@@ -96,6 +124,37 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         let finalImage = UIImage(CGImage: cgImage)
         return finalImage!
         
+    }
+    
+    
+    
+    // caching functions 
+    func cacheImage(imageNumber:Int) {
+        let fileName = "\(imageNumber)"
+        let uniquePath = tmp.stringByAppendingPathComponent(fileName)
+        if !NSFileManager.defaultManager().fileExistsAtPath(fileName) {
+            let data = self.thisFeedItem.thumbNail
+            let filter = self.filters[imageNumber]
+            let image = filteredImageFromImage(data, filter: filter)
+            UIImageJPEGRepresentation(image, 1.0).writeToFile(uniquePath, atomically: true)  // write this data to the selected path (all in one swoop)
+            
+        }
+    }
+    
+    // get the image from cache
+    func getCachedImage(imageNumber:Int) -> UIImage {
+        let fileName = "\(imageNumber)"
+        let uniquePath = tmp.stringByAppendingPathComponent(fileName)
+        var image:UIImage
+        // does the image exist?  if not create it and return it
+        if NSFileManager.defaultManager().fileExistsAtPath(uniquePath) {
+            image = UIImage(contentsOfFile: uniquePath)!
+        }
+        else {
+            self.cacheImage(imageNumber)
+            image = UIImage(contentsOfFile: uniquePath)!
+        }
+        return image
     }
 
 }

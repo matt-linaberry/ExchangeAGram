@@ -28,6 +28,14 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         let context:NSManagedObjectContext = appDelegate.managedObjectContext!
         feedArray = context.executeFetchRequest(request, error: nil)!
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        let request = NSFetchRequest(entityName: "FeedItem")
+        let appDelegate:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        let context:NSManagedObjectContext = appDelegate.managedObjectContext!
+        feedArray = context.executeFetchRequest(request, error: nil)!
+        collectionView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -81,7 +89,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         let image = info[UIImagePickerControllerOriginalImage] as UIImage  // info is a dictionary, keyed by the image type
         // convert the image to a data representation
         let imageData = UIImageJPEGRepresentation(image, 1.0)
-        
+        let thumbNailData = UIImageJPEGRepresentation(image, 0.1)  // this makes the thumbnail!
         // get the managed object context from the appdelegate
         let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         
@@ -90,7 +98,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         let feedItem = FeedItem(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
         feedItem.image = imageData
         feedItem.caption = "test caption"
-        
+        feedItem.thumbNail = thumbNailData
         (UIApplication.sharedApplication().delegate as AppDelegate).saveContext() // save the item
         
         feedArray.append(feedItem)
