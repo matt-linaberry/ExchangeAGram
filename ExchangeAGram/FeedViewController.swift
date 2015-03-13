@@ -53,6 +53,9 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     */
     
+    @IBAction func profileButtonTabbed(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("profileSegue", sender: nil)
+    }
     @IBAction func snapBarButtonItemTapped(sender: UIBarButtonItem) {
         // we first need to be sure we acutally have a camera!
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {

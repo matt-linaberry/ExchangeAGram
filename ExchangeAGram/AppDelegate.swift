@@ -21,7 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set up a data cache here :)
         let cache = NSURLCache(memoryCapacity: 8 * 1024 * 1024, diskCapacity: 20 * 1024 * 1024, diskPath: nil)
         NSURLCache.setSharedURLCache(cache)
+        
+        FBLoginView.self
+        FBProfilePictureView.self
+        
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        var wasHandled:Bool = FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication)
+        return wasHandled
     }
     
     func applicationDidReceiveMemoryWarning(application: UIApplication) {
