@@ -13,11 +13,12 @@
 		9919E2EA1AA2D84F009F267D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9919E2E91AA2D84F009F267D /* Images.xcassets */; };
 		9919E2ED1AA2D84F009F267D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9919E2EB1AA2D84F009F267D /* LaunchScreen.xib */; };
 		9919E2F91AA2D850009F267D /* ExchangeAGramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9919E2F81AA2D850009F267D /* ExchangeAGramTests.swift */; };
+		9925B6731ABA06B400AF1382 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9925B6721ABA06B400AF1382 /* MapKit.framework */; };
+		9925B6771ABA132A00AF1382 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9925B6761ABA132A00AF1382 /* FeedItem.swift */; };
 		99414BA51AA38FC4001FAB52 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99414BA41AA38FC4001FAB52 /* FeedViewController.swift */; };
 		99414BA71AA39223001FAB52 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99414BA61AA39223001FAB52 /* FeedCell.swift */; };
 		99414BA91AA39388001FAB52 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99414BA81AA39388001FAB52 /* MobileCoreServices.framework */; };
 		996B18121AACDF7800849A36 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B18111AACDF7800849A36 /* FilterViewController.swift */; };
-		99B608B41AB28852003DFFCF /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B608B31AB28852003DFFCF /* FeedItem.swift */; };
 		99B608B71AB29125003DFFCF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B608B61AB29125003DFFCF /* ProfileViewController.swift */; };
 		99B62DA81AB367100034CDAD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B62DA71AB367100034CDAD /* FacebookSDK.framework */; };
 		99B62DAB1AB37E800034CDAD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B62DAA1AB37E800034CDAD /* MapViewController.swift */; };
@@ -45,11 +46,12 @@
 		9919E2F21AA2D850009F267D /* ExchangeAGramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeAGramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9919E2F71AA2D850009F267D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9919E2F81AA2D850009F267D /* ExchangeAGramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAGramTests.swift; sourceTree = "<group>"; };
+		9925B6721ABA06B400AF1382 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9925B6761ABA132A00AF1382 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		99414BA41AA38FC4001FAB52 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		99414BA61AA39223001FAB52 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		99414BA81AA39388001FAB52 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		996B18111AACDF7800849A36 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		99B608B31AB28852003DFFCF /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		99B608B61AB29125003DFFCF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		99B62DA71AB367100034CDAD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		99B62DA91AB368270034CDAD /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9925B6731ABA06B400AF1382 /* MapKit.framework in Frameworks */,
 				99414BA91AA39388001FAB52 /* MobileCoreServices.framework in Frameworks */,
 				99B62DA81AB367100034CDAD /* FacebookSDK.framework in Frameworks */,
 			);
@@ -80,6 +83,7 @@
 		9919E2D11AA2D84F009F267D = {
 			isa = PBXGroup;
 			children = (
+				9925B6721ABA06B400AF1382 /* MapKit.framework */,
 				99414BA81AA39388001FAB52 /* MobileCoreServices.framework */,
 				9919E2DC1AA2D84F009F267D /* ExchangeAGram */,
 				9919E2F51AA2D850009F267D /* ExchangeAGramTests */,
@@ -107,10 +111,10 @@
 				99EF3C521AB12F25000A8E6B /* FilterCell.swift */,
 				9919E2E61AA2D84F009F267D /* Main.storyboard */,
 				99B62DAA1AB37E800034CDAD /* MapViewController.swift */,
+				99B608B61AB29125003DFFCF /* ProfileViewController.swift */,
 				9919E2E91AA2D84F009F267D /* Images.xcassets */,
 				9919E2EB1AA2D84F009F267D /* LaunchScreen.xib */,
 				9919E2DD1AA2D84F009F267D /* Supporting Files */,
-				99B608B61AB29125003DFFCF /* ProfileViewController.swift */,
 				99B62DA91AB368270034CDAD /* Bridging-Header.h */,
 			);
 			path = ExchangeAGram;
@@ -145,8 +149,8 @@
 		99B608B51AB28891003DFFCF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				99B608B31AB28852003DFFCF /* FeedItem.swift */,
 				9919E2E11AA2D84F009F267D /* ExchangeAGram.xcdatamodeld */,
+				9925B6761ABA132A00AF1382 /* FeedItem.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -256,8 +260,8 @@
 				9919E2E01AA2D84F009F267D /* AppDelegate.swift in Sources */,
 				99414BA71AA39223001FAB52 /* FeedCell.swift in Sources */,
 				99B62DAB1AB37E800034CDAD /* MapViewController.swift in Sources */,
+				9925B6771ABA132A00AF1382 /* FeedItem.swift in Sources */,
 				99414BA51AA38FC4001FAB52 /* FeedViewController.swift in Sources */,
-				99B608B41AB28852003DFFCF /* FeedItem.swift in Sources */,
 				99B608B71AB29125003DFFCF /* ProfileViewController.swift in Sources */,
 				9919E2E31AA2D84F009F267D /* ExchangeAGram.xcdatamodeld in Sources */,
 			);

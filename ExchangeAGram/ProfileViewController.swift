@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController, FBLoginViewDelegate {
     // FBLoginViewDelegate
     
     @IBAction func mapViewButtonPressed(sender: UIButton) {
+        performSegueWithIdentifier("mapSegue", sender: nil)
     }
     func loginViewShowingLoggedInUser(loginView: FBLoginView!) {
         profileImageView.hidden = false  // unhide it
