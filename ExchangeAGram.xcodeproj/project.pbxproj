@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		525591061AC7259A00A7E2B7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525591051AC7259A00A7E2B7 /* FacebookSDK.framework */; };
 		9919E2E01AA2D84F009F267D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9919E2DF1AA2D84F009F267D /* AppDelegate.swift */; };
 		9919E2E31AA2D84F009F267D /* ExchangeAGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9919E2E11AA2D84F009F267D /* ExchangeAGram.xcdatamodeld */; };
 		9919E2E81AA2D84F009F267D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9919E2E61AA2D84F009F267D /* Main.storyboard */; };
@@ -20,7 +21,6 @@
 		99414BA91AA39388001FAB52 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99414BA81AA39388001FAB52 /* MobileCoreServices.framework */; };
 		996B18121AACDF7800849A36 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B18111AACDF7800849A36 /* FilterViewController.swift */; };
 		99B608B71AB29125003DFFCF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B608B61AB29125003DFFCF /* ProfileViewController.swift */; };
-		99B62DA81AB367100034CDAD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B62DA71AB367100034CDAD /* FacebookSDK.framework */; };
 		99B62DAB1AB37E800034CDAD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B62DAA1AB37E800034CDAD /* MapViewController.swift */; };
 		99EF3C531AB12F25000A8E6B /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EF3C521AB12F25000A8E6B /* FilterCell.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		525591051AC7259A00A7E2B7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		9919E2DA1AA2D84F009F267D /* ExchangeAGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeAGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9919E2DE1AA2D84F009F267D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9919E2DF1AA2D84F009F267D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,9 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				525591061AC7259A00A7E2B7 /* FacebookSDK.framework in Frameworks */,
 				9925B6731ABA06B400AF1382 /* MapKit.framework in Frameworks */,
 				99414BA91AA39388001FAB52 /* MobileCoreServices.framework in Frameworks */,
-				99B62DA81AB367100034CDAD /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +84,7 @@
 		9919E2D11AA2D84F009F267D = {
 			isa = PBXGroup;
 			children = (
+				525591051AC7259A00A7E2B7 /* FacebookSDK.framework */,
 				9925B6721ABA06B400AF1382 /* MapKit.framework */,
 				99414BA81AA39388001FAB52 /* MobileCoreServices.framework */,
 				9919E2DC1AA2D84F009F267D /* ExchangeAGram */,
@@ -391,6 +393,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/LLMax00/Documents/FacebookSDK,
+					/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = ExchangeAGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -406,6 +409,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/LLMax00/Documents/FacebookSDK,
+					/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = ExchangeAGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
